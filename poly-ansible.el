@@ -25,10 +25,10 @@
 
 ;; Edit YAML files for Ansible containing embedded Jinja2 templating.
 
-
 ;;; Code:
 
 (require 'polymode)
+
 
 (defcustom pm-inner/jinja2
   (pm-inner-chunkmode :mode #'jinja2-mode
@@ -40,10 +40,11 @@
   :group 'innermodes
   :type 'object)
 
-;;;###autoload
+;;;###autoload (autoload 'poly-ansible-mode "poly-ansible")
 (define-polymode poly-ansible-mode
   :hostmode 'pm-host/yaml
   :innermodes '(pm-inner/jinja2))
+
 
 ;;;###autoload
 (add-to-list 'auto-mode-alist
@@ -52,6 +53,7 @@
 ;;;###autoload
 (add-to-list 'auto-mode-alist
              '("/\\(?:group\\|host\\)_vars/" . poly-ansible-mode))
+
 
 (provide 'poly-ansible)
 
