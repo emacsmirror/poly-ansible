@@ -50,7 +50,7 @@
 
 ;;;###autoload
 (add-to-list 'auto-mode-alist
-             '("/ansible/.*\\.ya?ml$" . poly-ansible-mode))
+             '("/ansible/.*\\.ya?ml\\'" . poly-ansible-mode))
 
 ;;;###autoload
 (add-to-list 'auto-mode-alist
