@@ -16,7 +16,7 @@
 ;; along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 ;; Author: Peter Oliver <poly-ansible@mavit.org.uk>
-;; Version: 0.2.1
+;; Version: 0.3
 ;; Package-Requires: ((ansible-doc "0.4") (jinja2-mode "0.2") (polymode "0.1.5") (yaml-mode "0.0.13"))
 ;; Keywords: languages
 ;; URL: https://gitlab.com/mavit/poly-ansible/
@@ -28,6 +28,7 @@
 ;;; Code:
 
 (require 'polymode)
+(require 'poly-ansible-jinja2-filters)
 
 
 (defcustom pm-inner/jinja2
@@ -55,6 +56,15 @@
 ;;;###autoload
 (add-to-list 'auto-mode-alist
              '("/\\(?:group\\|host\\)_vars/" . poly-ansible-mode))
+
+
+(defun jinja2-ansible-functions-keywords (args)
+  "Advice to provide additional keywords for Jinja2 filters defined by Ansible.
+ARGS is provided by the advised function, `jinja2-functions-keywords'."
+  (append args poly-ansible-jinja2-filters))
+
+(advice-add 'jinja2-functions-keywords :filter-return
+            #'jinja2-ansible-functions-keywords)
 
 
 (provide 'poly-ansible)
