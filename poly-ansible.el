@@ -1,6 +1,6 @@
 ;;; poly-ansible.el --- Polymode for Ansible: Jinja2 in YAML -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2015, 2018, Peter Oliver.
+;; Copyright (C) 2015, 2018, 2020, Peter Oliver.
 ;;
 ;; This program is free software: you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
