@@ -39,6 +39,7 @@
                       :head-matcher "{[%{#][+-]?"
                       :tail-matcher "[+-]?[%}#]}"
                       :head-mode 'body
+                      :tail-mode 'body
                       :head-adjust-face nil)
   "Jinja2 chunk."
   :group 'innermodes
