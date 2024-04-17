@@ -2,19 +2,21 @@
 
 ;; Copyright (C) 2015, 2018, 2020, 2024, Peter Oliver.
 ;;
-;; This program is free software: you can redistribute it and/or modify
+;; This file is part of poly-ansible.
+;;
+;; poly-ansible is free software: you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
 ;; the Free Software Foundation, either version 3 of the License, or
 ;; (at your option) any later version.
 ;;
-;; This program is distributed in the hope that it will be useful,
+;; poly-ansible is distributed in the hope that it will be useful,
 ;; but WITHOUT ANY WARRANTY; without even the implied warranty of
 ;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 ;; GNU General Public License for more details.
 ;;
 ;; You should have received a copy of the GNU General Public License
-;; along with this program.  If not, see <https://www.gnu.org/licenses/>.
-
+;; along with poly-ansible.  If not, see <https://www.gnu.org/licenses/>.
+;;
 ;; Author: Peter Oliver <poly-ansible@mavit.org.uk>
 ;; Version: 0.3
 ;; Package-Requires: ((ansible "0.2") (ansible-doc "0.4") (jinja2-mode "0.2") (polymode "0.1.5") (yaml-mode "0.0.13"))
