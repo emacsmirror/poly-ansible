@@ -31,9 +31,19 @@
 
 (require 'ansible)
 (require 'ansible-doc)
-(require 'jinja2-mode)
 (require 'poly-ansible-jinja2-filters)
 (require 'polymode)
+
+
+(defun jinja2-ansible-functions-keywords (args)
+  "Advice to provide additional keywords for Jinja2 filters defined by Ansible.
+ARGS is provided by the advised function, `jinja2-functions-keywords'."
+  (append args poly-ansible-jinja2-filters))
+
+(advice-add 'jinja2-functions-keywords :filter-return
+            #'jinja2-ansible-functions-keywords)
+
+(require 'jinja2-mode)
 
 
 (defcustom pm-inner/jinja2
@@ -63,15 +73,6 @@
 ;;;###autoload
 (add-to-list 'auto-mode-alist
              '("/\\(?:group\\|host\\)_vars/" . poly-ansible-mode))
-
-
-(defun jinja2-ansible-functions-keywords (args)
-  "Advice to provide additional keywords for Jinja2 filters defined by Ansible.
-ARGS is provided by the advised function, `jinja2-functions-keywords'."
-  (append args poly-ansible-jinja2-filters))
-
-(advice-add 'jinja2-functions-keywords :filter-return
-            #'jinja2-ansible-functions-keywords)
 
 
 (provide 'poly-ansible)
