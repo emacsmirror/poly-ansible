@@ -18,8 +18,8 @@
 ;; along with poly-ansible.  If not, see <https://www.gnu.org/licenses/>.
 ;;
 ;; Author: Peter Oliver <poly-ansible@mavit.org.uk>
-;; Version: 0.3.1
-;; Package-Requires: ((ansible "0.2") (ansible-doc "0.4") (jinja2-mode "0.2") (polymode "0.1.5") (yaml-mode "0.0.13"))
+;; Version: 0.4.0
+;; Package-Requires: ((ansible "0.2") (ansible-doc "0.4") (emacs "29") (jinja2-mode "0.2") (polymode "0.2"))
 ;; Keywords: languages
 ;; URL: https://gitlab.com/mavit/poly-ansible/
 
@@ -33,6 +33,7 @@
 (require 'ansible-doc)
 (require 'poly-ansible-jinja2-filters)
 (require 'polymode)
+(require 'treesit)
 
 
 (defun jinja2-ansible-functions-keywords (args)
@@ -57,13 +58,17 @@ ARGS is provided by the advised function, `jinja2-functions-keywords'."
   :group 'innermodes
   :type 'object)
 
+(unless (boundp 'poly-yaml-ts-hostmode)
+  (define-hostmode poly-yaml-ts-hostmode :mode 'yaml-ts-mode))
+
 ;;;###autoload (autoload 'poly-ansible-mode "poly-ansible")
 (define-polymode poly-ansible-mode
-  :hostmode 'pm-host/yaml
-  :innermodes '(pm-inner/jinja2)
+                 :hostmode (if (treesit-ready-p 'yaml)
+                               'poly-yaml-ts-hostmode 'poly-yaml-hostmode)
+                 :innermodes '(pm-inner/jinja2)
 
-  (ansible 1)
-  (ansible-doc-mode 1))
+                 (ansible 1)
+                 (ansible-doc-mode 1))
 
 
 ;;;###autoload
