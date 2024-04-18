@@ -2,7 +2,13 @@
 
 Edit [YAML files for Ansible](https://docs.ansible.com/ansible/latest/reference_appendices/YAMLSyntax.html) containing embedded [Jinja2 templating](http://jinja.pocoo.org/docs/).
 
-This is a [polymode](https://polymode.github.io/), gluing [`jinja2-mode`](https://github.com/paradoxxxzero/jinja2-mode) into [`yaml-mode`](https://github.com/yoshiki/yaml-mode).
+This is a [polymode](https://polymode.github.io/), gluing [`jinja2-mode`](https://github.com/paradoxxxzero/jinja2-mode) into either `yaml-ts-mode` or `yaml-mode`.
+
+You will need to ensure that at least one of the following is installed:
+- The [`tree-sitter-yaml`](https://github.com/tree-sitter-grammars/tree-sitter-yaml) Tree-sitter parser (Emacs 29 and higher only).
+- The [`yaml-mode`](https://github.com/yoshiki/yaml-mode) Emacs package.
+
+If you have installed Emacs with your operating system’s package manager, it may have automatically installed the Tree-sitter parser for you, in which case you should be good to go.
 
 ## Copying
 
