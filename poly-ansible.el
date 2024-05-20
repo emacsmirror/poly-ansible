@@ -18,8 +18,8 @@
 ;; along with poly-ansible.  If not, see <https://www.gnu.org/licenses/>.
 ;;
 ;; Author: Peter Oliver <poly-ansible@mavit.org.uk>
-;; Version: 0.4.0
-;; Package-Requires: ((ansible "0.2") (ansible-doc "0.4") (emacs "24.1") (jinja2-mode "0.2") (polymode "0.2"))
+;; Version: 0.4.1
+;; Package-Requires: ((ansible "0.2") (ansible-doc "0.4") (emacs "24.1") (jinja2-mode "0.2") (polymode "0.2") (yaml-mode "0.0.13"))
 ;; Keywords: languages
 ;; URL: https://gitlab.com/mavit/poly-ansible/
 
@@ -74,9 +74,18 @@ ARGS is provided by the advised function, `jinja2-functions-keywords'."
 
 ;;;###autoload (autoload 'poly-ansible-mode "poly-ansible")
 (define-polymode poly-ansible-mode
-                 :hostmode (if (and (featurep 'treesit)
-                                    (treesit-ready-p 'yaml))
-                               'poly-yaml-ts-hostmode 'poly-yaml-hostmode)
+                 :hostmode (if (eq 'yaml-ts-mode
+                                   (ignore-errors
+                                     (with-temp-buffer
+                                       (set-visited-file-name
+                                        (concat temporary-file-directory
+                                                (make-temp-name "")
+                                                ".yaml")
+                                        t t)
+                                       (set-auto-mode)
+                                       major-mode)))
+                               'poly-yaml-ts-hostmode
+                             'poly-yaml-hostmode)
                  :innermodes '(pm-inner/jinja2)
 
                  (ansible 1)
