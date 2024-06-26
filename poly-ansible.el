@@ -19,7 +19,7 @@
 ;;
 ;; Author: Peter Oliver <poly-ansible@mavit.org.uk>
 ;; Version: 0.4.1
-;; Package-Requires: ((ansible "0.2") (ansible-doc "0.4") (emacs "24.1") (jinja2-mode "0.2") (polymode "0.2") (yaml-mode "0.0.13"))
+;; Package-Requires: ((ansible "0.4.1") (ansible-doc "0.4") (emacs "24.1") (jinja2-mode "0.2") (polymode "0.2") (yaml-mode "0.0.13"))
 ;; Keywords: languages
 ;; URL: https://gitlab.com/mavit/poly-ansible/
 
@@ -88,7 +88,7 @@ ARGS is provided by the advised function, `jinja2-functions-keywords'."
                              'poly-yaml-hostmode)
                  :innermodes '(pm-inner/jinja2)
 
-                 (ansible 1)
+                 (ansible-mode 1)
                  (ansible-doc-mode 1))
 
 
