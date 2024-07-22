@@ -1,5 +1,7 @@
 # [poly-ansible](https://gitlab.com/mavit/poly-ansible/)
 
+## `poly-ansible-mode`
+
 Edit [YAML files for Ansible](https://docs.ansible.com/ansible/latest/reference_appendices/YAMLSyntax.html) containing embedded [Jinja2 templating](http://jinja.pocoo.org/docs/).
 
 This is a [polymode](https://polymode.github.io/), gluing [`jinja2-mode`](https://github.com/paradoxxxzero/jinja2-mode) into either `yaml-ts-mode` or `yaml-mode`.
@@ -9,6 +11,10 @@ You will need to ensure that at least one of the following is installed:
 - The [`yaml-mode`](https://github.com/yoshiki/yaml-mode) Emacs package.
 
 If you have installed Emacs with your operating system’s package manager, it may have automatically installed the Tree-sitter parser for you, in which case you should be good to go.
+
+## `poly-systemd-jinja2-mode`
+
+Also included is a polymode gluing `jinja2-mode` into [`systemd-mode`](https://github.com/holomorph/systemd-mode/), for when you’re using templates to create Systemd unit configurations.
 
 ## Copying
 

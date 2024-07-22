@@ -18,8 +18,8 @@
 ;; along with poly-ansible.  If not, see <https://www.gnu.org/licenses/>.
 ;;
 ;; Author: Peter Oliver <poly-ansible@mavit.org.uk>
-;; Version: 0.4.1
-;; Package-Requires: ((ansible "0.4.1") (ansible-doc "0.4") (emacs "24.1") (jinja2-mode "0.2") (polymode "0.2") (yaml-mode "0.0.13"))
+;; Version: 0.5.0
+;; Package-Requires: ((ansible "0.4.1") (ansible-doc "0.4") (emacs "24.1") (jinja2-mode "0.2") (polymode "0.2") (systemd "1.4") (yaml-mode "0.0.13"))
 ;; Keywords: languages
 ;; URL: https://gitlab.com/mavit/poly-ansible/
 
@@ -43,6 +43,7 @@
 (require 'ansible-doc)
 (require 'poly-ansible-jinja2-filters)
 (require 'polymode)
+(require 'systemd)
 (require 'treesit nil t)
 
 
@@ -98,6 +99,23 @@ ARGS is provided by the advised function, `jinja2-functions-keywords'."
 ;;;###autoload
 (add-to-list 'auto-mode-alist
              '("/\\(?:group\\|host\\)_vars/" . poly-ansible-mode))
+
+
+
+(define-hostmode poly-systemd-hostmode :mode 'systemd-mode)
+
+;;;###autoload (autoload 'poly-systemd-jinja2-mode "poly-ansible")
+(define-polymode poly-systemd-jinja2-mode
+                 :hostmode 'poly-systemd-hostmode
+                 :innermodes '(pm-inner/jinja2))
+
+;;;###autoload
+(add-to-list 'auto-mode-alist
+             (cons (concat "/roles/.*/templates/"
+                           (replace-regexp-in-string "\\\\'$" ""
+                                                     systemd-autoload-regexp)
+                           "\\.j\\(?:inja\\)?2\\'")
+                   'poly-systemd-jinja2-mode))
 
 
 (provide 'poly-ansible)
