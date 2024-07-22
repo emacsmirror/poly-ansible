@@ -57,16 +57,15 @@ ARGS is provided by the advised function, `jinja2-functions-keywords'."
 (require 'jinja2-mode)
 
 
-(defcustom pm-inner/jinja2
-  (pm-inner-chunkmode :mode #'jinja2-mode
-                      :head-matcher "{[%{#][+-]?"
-                      :tail-matcher "[+-]?[%}#]}"
-                      :head-mode 'body
-                      :tail-mode 'body
-                      :head-adjust-face nil)
-  "Jinja2 chunk."
-  :group 'innermodes
-  :type 'object)
+(define-obsolete-variable-alias
+  'pm-inner/jinja2 'poly-jinja2-innermode "v0.4.2")
+(define-innermode poly-jinja2-innermode
+                  :mode #'jinja2-mode
+                  :head-matcher "{[%{#][+-]?"
+                  :tail-matcher "[+-]?[%}#]}"
+                  :head-mode 'body
+                  :tail-mode 'body
+                  :head-adjust-face nil)
 
 (when (featurep 'treesit)
   (unless (boundp 'poly-yaml-ts-hostmode)
@@ -86,7 +85,7 @@ ARGS is provided by the advised function, `jinja2-functions-keywords'."
                                        major-mode)))
                                'poly-yaml-ts-hostmode
                              'poly-yaml-hostmode)
-                 :innermodes '(pm-inner/jinja2)
+                 :innermodes '(poly-jinja2-innermode)
 
                  (ansible-mode 1)
                  (ansible-doc-mode 1))
