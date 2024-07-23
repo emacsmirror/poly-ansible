@@ -109,6 +109,12 @@ ARGS is provided by the advised function, `jinja2-functions-keywords'."
                  :hostmode 'poly-systemd-hostmode
                  :innermodes '(pm-inner/jinja2))
 
+(defun systemd-file-podman-p-jinja2-advice (args)
+  "Hide .jinja2 filename extension in ARGS from systemd-mode."
+  (list (replace-regexp-in-string "\\.j\\(?:inja\\)?2\\'" "" (car args))))
+(advice-add 'systemd-file-podman-p
+            :filter-args #'systemd-file-podman-p-jinja2-advice)
+
 ;;;###autoload
 (add-to-list 'auto-mode-alist
              (cons (concat "/roles/.*/templates/"
