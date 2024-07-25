@@ -4,13 +4,9 @@
 
 Edit [YAML files for Ansible](https://docs.ansible.com/ansible/latest/reference_appendices/YAMLSyntax.html) containing embedded [Jinja2 templating](http://jinja.pocoo.org/docs/).
 
-This is a [polymode](https://polymode.github.io/), gluing [`jinja2-mode`](https://github.com/paradoxxxzero/jinja2-mode) into either `yaml-ts-mode` or `yaml-mode`.
+This is a [polymode](https://polymode.github.io/), gluing [`jinja2-mode`](https://github.com/paradoxxxzero/jinja2-mode) into either  [`yaml-mode`](https://github.com/yoshiki/yaml-mode) or `yaml-ts-mode`.  If you usually use `yaml-ts-mode` to edit YAML files, then that mode will be used as the host mode.  Otherwise, `yaml-mode` will be used.
 
-You will need to ensure that at least one of the following is installed:
-- The [`tree-sitter-yaml`](https://github.com/tree-sitter-grammars/tree-sitter-yaml) Tree-sitter parser (Emacs 29 and higher only).
-- The [`yaml-mode`](https://github.com/yoshiki/yaml-mode) Emacs package.
-
-If you have installed Emacs with your operating system’s package manager, it may have automatically installed the Tree-sitter parser for you, in which case you should be good to go.
+Although `yaml-ts-mode` is built in to Emacs, as of version 29 it is missing basic features compared to `yaml-mode` (such as indentation).  It also requires the separate installation of the [`tree-sitter-yaml`](https://github.com/tree-sitter-grammars/tree-sitter-yaml) Tree-sitter parser (either via your operating system’s package manager, via [`treesit-auto`](https://github.com/renzmann/treesit-auto), or manually).
 
 ## `poly-systemd-jinja2-mode`
 
