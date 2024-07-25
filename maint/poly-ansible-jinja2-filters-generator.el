@@ -19,7 +19,7 @@
 
 ;;; Code:
 
-(let ((filename "poly-ansible-jinja2-filters.el")
+(let ((filename "lisp/poly-ansible-jinja2-filters.el")
       (version-comment
        (concat "Automatically generated for Ansible "
                (with-temp-buffer
