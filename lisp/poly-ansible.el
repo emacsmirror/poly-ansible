@@ -49,7 +49,6 @@
 (require 'ansible-doc)
 (require 'poly-ansible-jinja2-filters)
 (require 'polymode)
-(require 'systemd)
 (require 'treesit nil t)
 
 
@@ -61,18 +60,8 @@ ARGS is provided by the advised function, `jinja2-functions-keywords'."
 (advice-add 'jinja2-functions-keywords :filter-return
             #'jinja2-ansible-functions-keywords)
 
-(require 'jinja2-mode)
+(require 'poly-jinja2)
 
-
-(define-obsolete-variable-alias
-  'pm-inner/jinja2 'poly-jinja2-innermode "v0.4.2")
-(define-innermode poly-jinja2-innermode
-                  :mode #'jinja2-mode
-                  :head-matcher "{[%{#][+-]?"
-                  :tail-matcher "[+-]?[%}#]}"
-                  :head-mode 'body
-                  :tail-mode 'body
-                  :head-adjust-face nil)
 
 (when (featurep 'treesit)
   (unless (boundp 'poly-yaml-ts-hostmode)
@@ -105,29 +94,6 @@ ARGS is provided by the advised function, `jinja2-functions-keywords'."
 ;;;###autoload
 (add-to-list 'auto-mode-alist
              '("/\\(?:group\\|host\\)_vars/" . poly-ansible-mode))
-
-
-
-(define-hostmode poly-systemd-hostmode :mode 'systemd-mode)
-
-;;;###autoload (autoload 'poly-systemd-jinja2-mode "poly-ansible")
-(define-polymode poly-systemd-jinja2-mode
-                 :hostmode 'poly-systemd-hostmode
-                 :innermodes '(pm-inner/jinja2))
-
-(defun systemd-file-podman-p-jinja2-advice (args)
-  "Hide .jinja2 filename extension in ARGS from systemd-mode."
-  (list (replace-regexp-in-string "\\.j\\(?:inja\\)?2\\'" "" (car args))))
-(advice-add 'systemd-file-podman-p
-            :filter-args #'systemd-file-podman-p-jinja2-advice)
-
-;;;###autoload
-(add-to-list 'auto-mode-alist
-             (cons (concat "/roles/.*/templates/"
-                           (replace-regexp-in-string "\\\\'$" ""
-                                                     systemd-autoload-regexp)
-                           "\\.j\\(?:inja\\)?2\\'")
-                   'poly-systemd-jinja2-mode))
 
 
 (provide 'poly-ansible)
