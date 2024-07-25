@@ -10,7 +10,7 @@ Although `yaml-ts-mode` is built in to Emacs, as of version 29 it is missing bas
 
 ## `poly-systemd-jinja2-mode`
 
-Also included is a polymode gluing `jinja2-mode` into [`systemd-mode`](https://github.com/holomorph/systemd-mode/), for when you’re using templates to create Systemd unit configurations.
+Also included is a polymode gluing `jinja2-mode` into [`systemd-mode`](https://github.com/holomorph/systemd-mode/), for when you’re using templates to create [Systemd unit](https://www.freedesktop.org/software/systemd/man/latest/systemd.unit.html) configurations.
 
 ## Copying
 
