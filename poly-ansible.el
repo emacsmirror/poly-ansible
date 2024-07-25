@@ -29,8 +29,9 @@
 ;;
 ;; This is a polymode, gluing jinja2-mode into either yaml-mode or
 ;; yaml-ts-mode.  If you usually use yaml-ts-mode to edit YAML files,
-;; then that mode will be used as the host mode.  Otherwise, yaml-mode
-;; (https://github.com/yoshiki/yaml-mode) will be used.
+;; then that mode will be used as the host mode; otherwise, yaml-mode
+;; will be used.  In either case, minor modes ansible-mode and
+;; ansible-doc-mode are both also activated.
 ;;
 ;; Also included is poly-systemd-jinja2-mode, a polymode gluing
 ;; jinja2-mode into systemd-mode, for when you’re using templates to
