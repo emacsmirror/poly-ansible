@@ -26,8 +26,9 @@
 
 (define-hostmode poly-systemd-hostmode :mode 'systemd-mode)
 
-;;;###autoload (autoload 'poly-systemd-jinja2-mode "poly-systemd-jinja2")
-(define-polymode poly-systemd-jinja2-mode
+;;;###autoload (autoload 'poly-systemd-jinja2-mode "poly-systemd-jinja2" "Polymode for Jinja2 templating in Systemd units." t)
+(define-polymode poly-systemd-jinja2-mode nil
+                 "Polymode for Jinja2 templating in Systemd units."
                  :hostmode 'poly-systemd-hostmode
                  :innermodes '(poly-jinja2-innermode))
 

@@ -18,7 +18,7 @@
 ;; along with poly-ansible.  If not, see <https://www.gnu.org/licenses/>.
 ;;
 ;; Author: Peter Oliver <poly-ansible@mavit.org.uk>
-;; Version: 0.5.0
+;; Version: 0.5.1
 ;; Package-Requires: ((ansible "0.4.1") (ansible-doc "0.4") (emacs "24.1") (jinja2-mode "0.2") (polymode "0.2") (systemd "1.4") (yaml-mode "0.0.13"))
 ;; Keywords: languages
 ;; URL: https://gitlab.com/mavit/poly-ansible/
@@ -67,8 +67,9 @@ ARGS is provided by the advised function, `jinja2-functions-keywords'."
   (unless (boundp 'poly-yaml-ts-hostmode)
     (define-hostmode poly-yaml-ts-hostmode :mode 'yaml-ts-mode)))
 
-;;;###autoload (autoload 'poly-ansible-mode "poly-ansible")
-(define-polymode poly-ansible-mode
+;;;###autoload (autoload 'poly-ansible-mode "poly-ansible" "Polymode for Jinja2 templating in Ansible YAML." t)
+(define-polymode poly-ansible-mode nil
+                 "Polymode for Jinja2 templating in Ansible YAML."
                  :hostmode (if (eq 'yaml-ts-mode
                                    (ignore-errors
                                      (with-temp-buffer
