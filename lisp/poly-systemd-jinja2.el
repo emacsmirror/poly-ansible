@@ -43,7 +43,7 @@
 
 ;;;###autoload
 (add-to-list 'auto-mode-alist
-             (cons (concat "/roles/.*/templates/"
+             (cons (concat "/roles/.*/templates\\(?:/.*\\)?/"
                            (replace-regexp-in-string "\\\\'$" ""
                                                      systemd-autoload-regexp)
                            "\\.j\\(?:inja\\)?2\\'")
