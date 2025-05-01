@@ -1,6 +1,6 @@
 ;;; poly-systemd-jinja2.el --- Polymode for Jinja2 in Systemd units -*- coding: utf-8; lexical-binding: t; -*-
 
-;; Copyright (C) 2024, Peter Oliver.
+;; Copyright (C) 2024-2025, Peter Oliver.
 ;;
 ;; This file is part of poly-ansible.
 ;;

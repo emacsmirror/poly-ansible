@@ -14,7 +14,7 @@ Also included is a polymode gluing `jinja2-mode` into [`systemd-mode`](https://g
 
 ## Copying
 
-Copyright (C) 2015, 2018, 2020, 2024, Peter Oliver.
+Copyright (C) 2015, 2018, 2020, 2024-2025, Peter Oliver.
 
 This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
 

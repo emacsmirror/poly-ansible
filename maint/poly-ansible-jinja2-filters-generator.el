@@ -1,6 +1,6 @@
 #!/usr/bin/emacs -x
 
-;; Copyright 2024, Peter Oliver.
+;; Copyright 2024-2025, Peter Oliver.
 ;;
 ;; This file is part of poly-ansible.
 ;;
