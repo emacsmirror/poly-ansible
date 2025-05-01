@@ -43,8 +43,7 @@
 
 ;;;###autoload
 (add-to-list 'auto-mode-alist
-             (cons (concat "/roles/.*/templates\\(?:/.*\\)?/"
-                           (replace-regexp-in-string "\\\\'$" ""
+             (cons (concat (replace-regexp-in-string "\\\\'$" ""
                                                      systemd-autoload-regexp)
                            "\\.j\\(?:inja\\)?2\\'")
                    'poly-systemd-jinja2-mode))
