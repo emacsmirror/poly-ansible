@@ -1,4 +1,4 @@
-;; Automatically generated for Ansible 2.16.8
+;; Automatically generated for Ansible 2.18.3
 
 (defvar poly-ansible-jinja2-filters
   (list
@@ -199,7 +199,9 @@
    "community.dns.quote_txt"
    "community.dns.remove_public_suffix"
    "community.dns.remove_registrable_domain"
+   "community.dns.reverse_pointer"
    "community.dns.unquote_txt"
+   "community.general.accumulate"
    "community.general.counter"
    "community.general.crc32"
    "community.general.dict"
@@ -210,13 +212,20 @@
    "community.general.hashids_decode"
    "community.general.hashids_encode"
    "community.general.jc"
+   "community.general.json_diff"
+   "community.general.json_patch"
+   "community.general.json_patch_recipe"
    "community.general.json_query"
+   "community.general.keep_keys"
    "community.general.lists_difference"
    "community.general.lists_intersect"
    "community.general.lists_mergeby"
    "community.general.lists_symmetric_difference"
    "community.general.lists_union"
    "community.general.random_mac"
+   "community.general.remove_keys"
+   "community.general.replace_keys"
+   "community.general.reveal_ansible_type"
    "community.general.to_days"
    "community.general.to_hours"
    "community.general.to_ini"
@@ -241,6 +250,7 @@
    "f5networks.f5_modules.verchg"
    "google.cloud.gcp_kms_decrypt"
    "google.cloud.gcp_kms_encrypt"
+   "hetzner.hcloud.load_balancer_status"
    "infinidat.infinibox.delta_time"
    "kubernetes.core.k8s_config_resource_name"
    "microsoft.ad.as_datetime"
@@ -248,6 +258,7 @@
    "microsoft.ad.as_sid"
    "microsoft.ad.dn_escape"
    "microsoft.ad.parse_dn"
+   "microsoft.ad.split_dn"
    "netapp.ontap.iso8601_duration_from_seconds"
    "netapp.ontap.iso8601_duration_to_seconds"
    "ovirt.ovirt.convert_to_bytes"
@@ -267,6 +278,6 @@
    "sensu.sensu_go.package_name"
    "theforeman.foreman.cp_label")
   "Additional Jinja2 filters defined by Ansible.
-Automatically generated for Ansible 2.16.8")
+Automatically generated for Ansible 2.18.3")
 
 (provide 'poly-ansible-jinja2-filters)

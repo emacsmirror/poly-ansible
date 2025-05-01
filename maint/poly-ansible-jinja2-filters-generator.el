@@ -38,6 +38,7 @@
              (shell-command "ansible-doc --list --type=filter --json"
                             (current-buffer))
              (goto-char (point-min))
+             (search-forward "{") (backward-char) ;; Skip any non-JSON warnings
              (json-parse-buffer :object-type 'alist)))
     (let ((filter-name (symbol-name (car filters))))
       (insert "\n   \"" filter-name "\"")
